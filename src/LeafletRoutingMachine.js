@@ -23,6 +23,7 @@ const LeafletRoutingMachine = ({ startingPoint, endingPoint }) => {
 
   console.log("The valueThree & valueFour is ",valueThree,valueFour);
 
+  //this is for finding origin lat & lng
   useEffect(() => {
     const apiKey = "e16171bb732c4d82b1bfe075d57ea900";
     const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
@@ -42,6 +43,7 @@ const LeafletRoutingMachine = ({ startingPoint, endingPoint }) => {
       .catch((error) => console.error(error));
   }, [startingPoint]);
 
+  //this is for finding destination lat & lng
   useEffect(() => {
     const apiKey = "e16171bb732c4d82b1bfe075d57ea900";
     const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
@@ -59,6 +61,8 @@ const LeafletRoutingMachine = ({ startingPoint, endingPoint }) => {
       .catch((error) => console.error(error));
   }, [endingPoint]);
 
+
+  /// this is overall routing showing and calculation
   useEffect(() => {
     var marker1 = L.marker([valueOne,valueTwo]).addTo(map);
     L.Routing.control({
@@ -87,6 +91,9 @@ const LeafletRoutingMachine = ({ startingPoint, endingPoint }) => {
 };
 
 export default LeafletRoutingMachine;
+
+
+
 
 /// this for when click one then destination will set 
 
